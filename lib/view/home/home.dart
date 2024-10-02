@@ -50,26 +50,35 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           MajorZaidiWidget(),
-                          ViewWorkOrder2(),
+                          CloseWorkOrder(),
                         ],
                       ),
                       SizedBox(height: SizeConfig.screenHeight * 0.02),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CustomTitleBox(
-                            title: 'Approve',
-                            kBoxColor: Colors.greenAccent,
-                            kBorderColor: Colors.greenAccent,
-                          ),
-                          CustomTitleBox(
-                            title: 'Reject',
-                            kBoxColor: Colors.pinkAccent.withOpacity(0.5),
-                            kBorderColor: Colors.pinkAccent,
-                          ),
-                          const CustomTitleBox(
-                            title: 'Request Changes',
-                            kBoxColor: kWhite,
+                          Expanded(
+                            flex: 2,
+                            child: Row(
+                              children: [
+                                const CustomTitleBox(
+                                  title: 'Approve',
+                                  kBoxColor: Colors.greenAccent,
+                                  kBorderColor: Colors.greenAccent,
+                                ),
+                                SizedBox(width: SizeConfig.screenWidth * 0.02),
+                                CustomTitleBox(
+                                  title: 'Reject',
+                                  kBoxColor: Colors.pinkAccent.withOpacity(0.5),
+                                  kBorderColor: Colors.pinkAccent,
+                                ),
+                                SizedBox(width: SizeConfig.screenWidth * 0.02),
+                                const CustomTitleBox(
+                                  title: 'Request Changes',
+                                  kBoxColor: kWhite,
+                                ),
+                              ],
+                            ),
                           ),
                           const WorkOrderWidget(
                             title: '20 Aug 2024',
@@ -78,11 +87,15 @@ class _HomeState extends State<Home> {
                       ),
                       SizedBox(height: SizeConfig.screenHeight * 0.012),
                       Container(
+                        height: SizeConfig.screenHeight * 0.051,
                         padding: EdgeInsets.symmetric(
-                            vertical: SizeConfig.screenHeight * 0.012),
+                          vertical: SizeConfig.screenHeight * 0.005,
+                        ),
                         decoration: const BoxDecoration(
-                            border: Border.symmetric(
-                                horizontal: BorderSide(color: kGrey))),
+                          border: Border.symmetric(
+                            horizontal: BorderSide(color: kGrey),
+                          ),
+                        ),
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -105,12 +118,7 @@ class _HomeState extends State<Home> {
                 const CustomList(),
                 SizedBox(height: SizeConfig.screenHeight * 0.012),
                 const CustomTitleText(titleText: 'Approved Work Order'),
-                const CustomList(
-                  itemCount: 3,
-                ),
-                SizedBox(height: SizeConfig.screenHeight * 0.012),
-                const CustomTitleText(titleText: 'Custom Table '),
-                const CustomTableWidget(),
+                const CustomList(itemCount: 3),
               ],
             ),
           ),
@@ -119,5 +127,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-

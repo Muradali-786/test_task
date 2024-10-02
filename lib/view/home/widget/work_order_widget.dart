@@ -13,26 +13,24 @@ class WorkOrderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: SizeConfig.screenHeight * 0.023,
       decoration: BoxDecoration(
         border: Border.all(color: kGrey),
         borderRadius: BorderRadius.circular(4),
       ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 6,
-        vertical: 5,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 7),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             title,
-            style: const TextStyle(fontSize: 10, color: Colors.black54),
+            style: const TextStyle(fontSize: 8, color: Colors.black54),
           ),
           const SizedBox(width: 4),
           const Icon(
             Icons.arrow_drop_down,
-            size: 15,
+            size: 10,
           )
         ],
       ),
@@ -40,15 +38,15 @@ class WorkOrderWidget extends StatelessWidget {
   }
 }
 
-class ViewWorkOrder2 extends StatelessWidget {
-  const ViewWorkOrder2({super.key});
+class CloseWorkOrder extends StatelessWidget {
+  const CloseWorkOrder({super.key});
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Container(
-      height: SizeConfig.screenHeight * 0.04,
-      width: SizeConfig.screenWidth * 0.35,
+      height: SizeConfig.screenHeight * 0.031,
+      width: SizeConfig.screenWidth * 0.32,
       decoration: BoxDecoration(
         border: Border.all(color: kGrey),
         borderRadius: BorderRadius.circular(6),
@@ -58,13 +56,13 @@ class ViewWorkOrder2 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'View Work Order',
+            'Close Work Order',
             style: TextStyle(fontSize: 10, color: kBlack),
           ),
-          SizedBox(width: 4),
+          SizedBox(width: 2),
           Icon(
-            Icons.arrow_drop_down,
-            size: 15,
+            Icons.arrow_drop_up,
+            size: 12,
           )
         ],
       ),

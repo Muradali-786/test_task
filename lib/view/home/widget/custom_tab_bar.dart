@@ -27,7 +27,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: SizedBox(
-        height: SizeConfig.screenHeight * 0.08,
+        height: SizeConfig.screenHeight * 0.07,
         child: AnimatedButtonBar(
           radius: 12,
           backgroundColor: kWhite,
@@ -41,7 +41,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
               onTap: () {},
               child: Text('Signp Approvals',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 12,
                     color: buttonController.index == 0 ? kWhite : kBlack,
                     fontWeight: FontWeight.w500,
                   )),
@@ -51,7 +51,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
               child: Text(
                 'Work Order Approvals',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 12,
                   color: buttonController.index == 1 ? kWhite : kBlack,
                   fontWeight: FontWeight.w500,
                 ),

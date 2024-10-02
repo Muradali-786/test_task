@@ -8,19 +8,23 @@ class MajorZaidiWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: SizeConfig.screenHeight * 0.04,
-          width: SizeConfig.screenWidth * 0.08,
+          height: 25,
+          width: 25,
           alignment: Alignment.topCenter,
           decoration: BoxDecoration(
-              border: Border.all(color: kGrey),
-              borderRadius: BorderRadius.circular(6)),
+            border: Border.all(color: kGrey),
+            borderRadius: BorderRadius.circular(6),
+          ),
           child: const Center(
-            child: Icon(Icons.group_sharp),
+            child: Icon(
+              Icons.group_sharp,
+              size: 16,
+            ),
           ),
         ),
         SizedBox(width: SizeConfig.screenWidth * 0.03),
@@ -30,13 +34,14 @@ class MajorZaidiWidget extends StatelessWidget {
           children: [
             Text(
               'Major Zaidi team',
-              style:
-              Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 14),
+              style: Theme.of(context)
+                  .textTheme
+                  .labelMedium!
+                  .copyWith(fontSize: 12,fontWeight: FontWeight.w500),
             ),
             const Text(
               '2024040820 | 20 Aug 24',
-              style:
-              TextStyle(fontSize: 9, color: kGrey85),
+              style: TextStyle(fontSize: 8, color: kGrey85),
             ),
           ],
         )
@@ -44,4 +49,3 @@ class MajorZaidiWidget extends StatelessWidget {
     );
   }
 }
-

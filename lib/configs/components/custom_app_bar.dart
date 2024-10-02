@@ -43,10 +43,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     : Center(
                         child: Text(
                           title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .displayLarge!
-                              .copyWith(fontSize: 18),
+                          style: const TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: kBlack),
                         ),
                       ),
               ),
@@ -92,8 +92,8 @@ class BackIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 25,
-      width: 25,
+      height: 30,
+      width: 30,
       alignment: Alignment.topCenter,
       decoration: BoxDecoration(
           border: Border.all(color: kGrey),
@@ -122,8 +122,8 @@ class ActionIconButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
       ),
       child: Container(
-        height: 25,
-        width: 25,
+        height: 30,
+        width: 30,
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
             border: Border.all(color: kGrey),
