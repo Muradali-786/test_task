@@ -27,10 +27,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        decoration: BoxDecoration(color: appBarColor),
+        decoration: BoxDecoration(
+            color: appBarColor,
+            border: const Border(bottom: BorderSide(color: kGrey))),
         child: Padding(
           padding:
-              const EdgeInsets.symmetric(horizontal: 25, vertical: 25 / 2.5),
+              const EdgeInsets.symmetric(horizontal: 20, vertical: 30 / 2.5),
           child: Stack(
             children: [
               Positioned.fill(
@@ -72,7 +74,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ]
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -84,7 +86,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size(double.maxFinite, 80);
 }
 
-
 class BackIconButton extends StatelessWidget {
   const BackIconButton({super.key});
 
@@ -95,8 +96,8 @@ class BackIconButton extends StatelessWidget {
       width: 25,
       alignment: Alignment.topCenter,
       decoration: BoxDecoration(
-          border: Border.all(color: kBlack),
-          borderRadius: BorderRadius.circular(4)),
+          border: Border.all(color: kGrey),
+          borderRadius: BorderRadius.circular(6)),
       child: const Center(
         child: Icon(Icons.arrow_back, size: 20),
       ),
@@ -125,10 +126,10 @@ class ActionIconButton extends StatelessWidget {
         width: 25,
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
-            border: Border.all(color: kBlack),
-            borderRadius: BorderRadius.circular(4)),
+            border: Border.all(color: kGrey),
+            borderRadius: BorderRadius.circular(6)),
         child: const Center(
-          child: Icon(Icons.notifications_paused, size: 20),
+          child: Icon(Icons.notifications, size: 20),
         ),
       ),
     );
