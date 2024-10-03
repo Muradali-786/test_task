@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../configs/color/app_color.dart';
+import '../../../configs/images/images_config.dart';
 import '../../../configs/size_config.dart';
 
 class MajorZaidiWidget extends StatelessWidget {
@@ -20,10 +21,11 @@ class MajorZaidiWidget extends StatelessWidget {
             border: Border.all(color: kGrey),
             borderRadius: BorderRadius.circular(6),
           ),
-          child: const Center(
-            child: Icon(
-              Icons.group_sharp,
-              size: 16,
+          child: Center(
+            child: Image.asset(
+              ImagesConfig.groupIcon,
+              height: 15,
+              width: 16,
             ),
           ),
         ),
@@ -34,10 +36,8 @@ class MajorZaidiWidget extends StatelessWidget {
           children: [
             Text(
               'Major Zaidi team',
-              style: Theme.of(context)
-                  .textTheme
-                  .labelMedium!
-                  .copyWith(fontSize: 12,fontWeight: FontWeight.w500),
+              style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                  fontSize: 12, fontWeight: FontWeight.w500, color: kSecondry),
             ),
             const Text(
               '2024040820 | 20 Aug 24',

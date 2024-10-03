@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_task/view/home/widget/widgets.dart';
 
 import '../../../configs/color/app_color.dart';
+import '../../../configs/images/images_config.dart';
 import '../../../configs/size_config.dart';
 
 class CustomTitleText extends StatelessWidget {
@@ -20,7 +21,7 @@ class CustomTitleText extends StatelessWidget {
       style: Theme.of(context)
           .textTheme
           .labelLarge!
-          .copyWith(fontSize: 15, fontWeight: FontWeight.w600),
+          .copyWith(fontSize: 15, fontWeight: FontWeight.w600,color: kSecondry),
     );
   }
 }
@@ -35,6 +36,7 @@ class CustomList extends StatelessWidget {
     return ListView.builder(
         itemCount: itemCount,
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(top: 10.0),
@@ -61,8 +63,12 @@ class CustomList extends StatelessWidget {
                         decoration: BoxDecoration(
                             border: Border.all(color: kGrey),
                             borderRadius: BorderRadius.circular(4)),
-                        child: const Center(
-                          child: Icon(Icons.group_sharp,size: 17),
+                        child:  Center(
+                          child: Image.asset(
+                            ImagesConfig.groupIcon,
+                            height: 15,
+                            width: 16,
+                          ),
                         ),
                       ),
                       SizedBox(width: SizeConfig.screenWidth * 0.02),
@@ -76,7 +82,7 @@ class CustomList extends StatelessWidget {
                                 .textTheme
                                 .labelMedium!
                                 .copyWith(
-                                    fontWeight: FontWeight.w500, fontSize: 12),
+                                    fontWeight: FontWeight.w500, fontSize: 12,color: kSecondry),
                           ),
                           const Text(
                             'work order',
@@ -119,7 +125,7 @@ class CustomTitleBox extends StatelessWidget {
       child: Center(
         child: Text(
           title,
-          style: const TextStyle(color: kBlack, fontSize: 8),
+          style: const TextStyle(color:kSecondry, fontSize: 8),
         ),
       ),
     );

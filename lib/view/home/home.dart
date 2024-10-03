@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final ScrollController _controller = ScrollController();
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -26,91 +27,41 @@ class _HomeState extends State<Home> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(12, 6, 12, 22),
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 22),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomTabBar(),
-                SizedBox(height: SizeConfig.screenHeight * 0.01),
+                const CustomToggleSwitch(),
+                SizedBox(height: SizeConfig.screenHeight * 0.012),
                 const CustomTitleText(titleText: 'Pending Work Orders'),
-                SizedBox(height: SizeConfig.screenHeight * 0.01),
+                SizedBox(height: SizeConfig.screenHeight * 0.012),
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.only(bottom: 6),
                   decoration: BoxDecoration(
-                      border: Border.all(
-                        color: kGrey,
-                      ),
+                      border: Border.all(color: kGrey),
                       borderRadius: BorderRadius.circular(6)),
                   child: Column(
                     children: [
-                      const Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          MajorZaidiWidget(),
-                          CloseWorkOrder(),
-                        ],
-                      ),
-                      SizedBox(height: SizeConfig.screenHeight * 0.02),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: Row(
-                              children: [
-                                const CustomTitleBox(
-                                  title: 'Approve',
-                                  kBoxColor: Colors.greenAccent,
-                                  kBorderColor: Colors.greenAccent,
-                                ),
-                                SizedBox(width: SizeConfig.screenWidth * 0.02),
-                                CustomTitleBox(
-                                  title: 'Reject',
-                                  kBoxColor: Colors.pinkAccent.withOpacity(0.5),
-                                  kBorderColor: Colors.pinkAccent,
-                                ),
-                                SizedBox(width: SizeConfig.screenWidth * 0.02),
-                                const CustomTitleBox(
-                                  title: 'Request Changes',
-                                  kBoxColor: kWhite,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const WorkOrderWidget(
-                            title: '20 Aug 2024',
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: SizeConfig.screenHeight * 0.012),
-                      Container(
-                        height: SizeConfig.screenHeight * 0.051,
-                        padding: EdgeInsets.symmetric(
-                          vertical: SizeConfig.screenHeight * 0.005,
-                        ),
-                        decoration: const BoxDecoration(
-                          border: Border.symmetric(
-                            horizontal: BorderSide(color: kGrey),
-                          ),
-                        ),
-                        child: const Row(
+                      const Padding(
+                        padding: EdgeInsets.all(8),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            HeaderText(title: 'Total Entries', subtitle: '15'),
-                            HeaderText(
-                              title: 'Total Quantity (kg)',
-                              subtitle: '1875',
-                              disableBorder: false,
-                            ),
-                            HeaderText(
-                                title: 'Total Cost (Pkr)', subtitle: '404,900'),
+                            MajorZaidiWidget(),
+                            CloseWorkOrder(),
                           ],
                         ),
                       ),
-                      const CustomDataTable()
+                      SizedBox(height: SizeConfig.screenHeight * 0.01),
+                      const ApprovalActionWidget(),
+                      SizedBox(height: SizeConfig.screenHeight * 0.012),
+                      const InventorySummaryWidget(),
+                      const TableHeaderRow(),
+                      CustomDataTable(controller: _controller),
+
                     ],
                   ),
                 ),

@@ -31,6 +31,7 @@ class WorkOrderWidget extends StatelessWidget {
           const Icon(
             Icons.arrow_drop_down,
             size: 10,
+            color: kSecondry,
           )
         ],
       ),
@@ -57,12 +58,16 @@ class CloseWorkOrder extends StatelessWidget {
         children: [
           Text(
             'Close Work Order',
-            style: TextStyle(fontSize: 10, color: kBlack),
+            style: TextStyle(fontSize: 10, color: kSecondry),
           ),
           SizedBox(width: 2),
-          Icon(
-            Icons.arrow_drop_up,
-            size: 12,
+          Padding(
+            padding: EdgeInsets.only(top: 4),
+            child: Icon(
+              Icons.arrow_drop_up,
+              size: 12,
+              color: kSecondry,
+            ),
           )
         ],
       ),

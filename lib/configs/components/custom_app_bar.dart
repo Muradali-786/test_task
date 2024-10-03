@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../color/app_color.dart';
 import 'package:badges/badges.dart' as badges;
 
+import '../images/images_config.dart';
+
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Color appBarColor, appBarTitleColor;
@@ -32,7 +34,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             border: const Border(bottom: BorderSide(color: kGrey))),
         child: Padding(
           padding:
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 30 / 2.5),
+              const EdgeInsets.fromLTRB(12, 30 / 2.5, 20, 30 / 2.5),
           child: Stack(
             children: [
               Positioned.fill(
@@ -46,7 +48,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                           style: const TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
-                              color: kBlack),
+                              color: kSecondry),
                         ),
                       ),
               ),
@@ -63,6 +65,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                           },
                           icon: const Icon(
                             Icons.arrow_back_ios,
+                            color: kSecondry,
                             size: 20,
                           ),
                         ),
@@ -97,9 +100,13 @@ class BackIconButton extends StatelessWidget {
       alignment: Alignment.topCenter,
       decoration: BoxDecoration(
           border: Border.all(color: kGrey),
-          borderRadius: BorderRadius.circular(6)),
-      child: const Center(
-        child: Icon(Icons.arrow_back, size: 20),
+          borderRadius: BorderRadius.circular(8)),
+      child: Center(
+        child: Image.asset(
+          ImagesConfig.backIcon,
+          height: 12,
+          width: 14,
+        ),
       ),
     );
   }
@@ -129,7 +136,7 @@ class ActionIconButton extends StatelessWidget {
             border: Border.all(color: kGrey),
             borderRadius: BorderRadius.circular(6)),
         child: const Center(
-          child: Icon(Icons.notifications, size: 20),
+          child: Icon(Icons.notifications, size: 20,color: kSecondry,),
         ),
       ),
     );
