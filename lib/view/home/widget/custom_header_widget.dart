@@ -32,14 +32,15 @@ class HeaderText extends StatelessWidget {
             title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(color: kGrey85, fontSize: 10),
+            style: const TextStyle(color: kGrey85, fontSize: 9),
           ),
           Text(
             subtitle,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-                fontWeight: FontWeight.w500, color: kBlack, fontSize: 10),
+
+            style:const TextStyle(
+                fontWeight: FontWeight.w500, color: kBlack, fontSize: 8),
           ),
         ],
       ),

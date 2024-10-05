@@ -68,6 +68,7 @@ class CustomDataTable extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       _buildText('GLJN-2',flex: 2),
                       _buildText('Gloria jean',flex: 2),
