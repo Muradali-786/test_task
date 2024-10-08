@@ -32,7 +32,8 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomToggleSwitch(),
+                const CustomTabBar(),
+
                 SizedBox(height: SizeConfig.screenHeight * 0.012),
                 const CustomTitleText(titleText: 'Pending Work Orders'),
                 SizedBox(height: SizeConfig.screenHeight * 0.012),

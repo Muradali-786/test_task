@@ -1,86 +1,73 @@
-
 import 'package:flutter/material.dart';
 import 'package:test_task/configs/size_config.dart';
 
 import '../../../configs/color/app_color.dart';
 
-
-
-class CustomToggleSwitch extends StatefulWidget {
-  const CustomToggleSwitch({super.key});
+class CustomTabBar extends StatefulWidget {
+  const CustomTabBar({super.key});
 
   @override
-  _CustomToggleSwitchState createState() => _CustomToggleSwitchState();
+  State<CustomTabBar> createState() => _CustomTabBarState();
 }
 
-class _CustomToggleSwitchState extends State<CustomToggleSwitch> {
-  bool isSignUpApprovalSelected = true;
+class _CustomTabBarState extends State<CustomTabBar>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Container(
-      height: SizeConfig.screenHeight * 0.065,
-      width: double.infinity,
-      padding: const EdgeInsets.all(2),
-      decoration: BoxDecoration(
-        color: kWhite, // Background color
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: kGrey),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isSignUpApprovalSelected = true;
-                });
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: isSignUpApprovalSelected ?kSecondry : kWhite,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  'Sign Up Approval',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: isSignUpApprovalSelected ? kWhite : kSecondry,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
+
+    return Column(
+      children: [
+        Container(
+          height: 54,
+          padding: const EdgeInsets.all(2),
+          decoration: BoxDecoration(
+            color: kWhite,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: kGrey),
           ),
-          Expanded(
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isSignUpApprovalSelected = false;
-                });
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: !isSignUpApprovalSelected ? kSecondry: kWhite,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  'Work Order Approval',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: !isSignUpApprovalSelected ? kWhite : kSecondry,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+          child: TabBar(
+            controller: _tabController,
+            indicator: BoxDecoration(
+              color: kSecondry,
+              borderRadius: BorderRadius.circular(10),
             ),
+            labelColor: kWhite,
+            unselectedLabelColor: kSecondry,
+            labelStyle: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+            tabs: const [
+              Tab(text: 'Sign Up Approval'),
+              Tab(text: 'Work Order Approval'),
+            ],
           ),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 40,
+          child: TabBarView(
+            controller: _tabController,
+            children: const [
+              Center(child: Text('Sign Up Approval Content')),
+              Center(child: Text('Work Order Approval Content')),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
